@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
-/* Estilo Verde/Azul de Fundo */
+/* --- ESQUEMA DE CORES: AZUL ESCURO E CLARO --- */
+
+/* Fundo Geral: Azul Céu Suave */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f8ff; /* Azul Céu Suave */
+    background-color: #f0f4f7; /* Cinza/Azul Claro Quase Branco */
     color: #1a1a2e;
     margin: 0;
     padding: 0;
@@ -15,10 +17,10 @@ body {
     align-items: center;
 }
 
-/* Cabeçalho Topzeira */
+/* Cabeçalho: Azul Marinho Escuro */
 header {
     width: 100%;
-    background-image: linear-gradient(135deg, #1abc9c 0%, #1e8449 100%); /* Verde-Água/Amazônia */
+    background-color: #1a237e; /* Azul Índigo Escuro */
     color: #ffffff;
     padding: 40px 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -31,65 +33,91 @@ header h1 {
     letter-spacing: 2px;
 }
 
-/* Card Principal */
-.quiz-container {
-    max-width: 650px;
+/* --- ESTILO GERAL E MENU MINIMALISTA --- */
+
+/* Card Principal (Menu/Quiz) */
+.game-menu, .quiz-container {
+    max-width: 700px;
     width: 90%;
     margin-top: 50px;
-    padding: 30px; 
+    padding: 40px;
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(30, 132, 73, 0.1); 
-    border: 1px solid #ddd;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 5px rgba(26, 35, 126, 0.1); 
+    border: 1px solid #e0e0e0;
 }
 
-/* Pergunta Minimalista */
+.menu-title {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.2em;
+    color: #3949ab; /* Azul Médio */
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0; /* Linha de separação minimalista */
+    padding-bottom: 15px;
+}
+
+/* Links do Menu (Minimalista) */
+.game-link {
+    display: block;
+    background-color: #ffffff; 
+    color: #1a237e; /* Cor do texto é o azul escuro */
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: left;
+    border: 2px solid #bbdefb; /* Borda fina e clara */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.game-link:hover {
+    background-color: #e3f2fd; /* Azul clarinho no hover */
+    color: #1a237e;
+    transform: translateY(-2px);
+    border-color: #64b5f6; /* Borda azul médio no hover */
+}
+
+/* Estilo para Botões e Perguntas (Quiz) */
 .question {
     font-family: 'Dosis', sans-serif;
     font-size: 1.6em; 
     font-weight: 700;
-    color: #1e8449; 
+    color: #3949ab; 
     margin-bottom: 25px; 
 }
-
-/* Botões de Opção */
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px; 
-}
-
-.option-button, .quiz-container button {
+.option-button {
     background-color: #ffffff;
     color: #1a1a2e;
-    border: 2px solid #a9dfbf; 
-    padding: 12px 20px; 
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em; 
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: left; /* Minimalismo: foca na opção */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+    border: 2px solid #bbdefb; 
+    /* Outros estilos de botão permanecem... */
 }
-
-.option-button:hover, .quiz-container button:hover {
-    background-color: #e0f8f3; 
-    color: #1e8449;
-    border-color: #1e8449;
+.option-button:hover {
+    background-color: #e3f2fd; 
+    color: #1a1a2e;
+    border-color: #64b5f6;
     transform: translateY(-2px); 
 }
 
 /* Feedback de Cores (Funcionalidade) */
 .correct {
-    background-color: #27ae60 !important; 
+    background-color: #43a047 !important; /* Verde mais escuro */
     color: white !important;
-    border-color: #1e8449 !important;
+    border-color: #2e7d32 !important;
 }
 
 .wrong {
-    background-color: #e74c3c !important; 
+    background-color: #e53935 !important; /* Vermelho mais escuro */
     color: white !important;
-    border-color: #c0392b !important;
+    border-color: #c62828 !important;
 }
-/* Estilo para explicação removido para manter a simplicidade */
+
+/* Botão de voltar ao menu */
+.quiz-container a.option-button {
+    text-align: center;
+    background-color: #f5f5f5;
+    color: #1a237e;
+    border-color: #c5cae9;
+}
