@@ -1,9 +1,10 @@
-// --- 1. Lista de Perguntas (O SEU CONTEÚDO) ---
+// --- 1. A Lista de Perguntas (O SEU CONTEÚDO) ---
+// Note que 'answer: 0' significa que a primeira opção (índice 0) é a correta.
 const quiz = [
     {
         question: "Onde vive principalmente o Boto Cor-de-Rosa?",
         options: ["Nos rios da Amazônia e Orinoco", "Nos oceanos Atlântico e Pacífico"],
-        answer: 0 // A primeira opção (índice 0) é a correta
+        answer: 0 
     },
     {
         question: "Qual dos botos é o tema da lenda que se transforma em homem?",
@@ -32,50 +33,47 @@ const quiz = [
     }
 ];
 
-// --- 2. Variáveis de Estado do Jogo ---
-let currentQuestionIndex = 0;
-let score = 0;
-let answered = false;
+// --- 2. Variáveis de Controle ---
+let currentQuestionIndex = 0; // Índice da pergunta atual (começa em 0)
+let score = 0; // Pontuação
+let answered = false; // Impede que o usuário clique duas vezes na mesma pergunta
 
-// --- 3. Elementos do DOM (Conecta ao HTML) ---
+// --- 3. Conexão com o HTML (Onde colocar o texto) ---
 const questionElement = document.querySelector('.question');
 const optionsContainer = document.querySelector('.options');
 const resultElement = document.getElementById('result'); 
 
-// --- 4. Função Principal: Carregar a Próxima Pergunta ---
+// --- 4. FUNÇÃO: Carregar a Próxima Pergunta ---
 function loadQuestion() {
     answered = false;
-    optionsContainer.innerHTML = '';
-    resultElement.textContent = '';
+    optionsContainer.innerHTML = ''; // Limpa os botões antigos
+    resultElement.textContent = ''; // Limpa a mensagem 'Certo/Errado'
 
-    // Verifica se o quiz acabou
     if (currentQuestionIndex >= quiz.length) {
-        showResults();
+        showResults(); // Se acabaram as perguntas, mostra o resultado final
         return;
     }
 
     const currentQuestion = quiz[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
+    questionElement.textContent = currentQuestion.question; // Exibe a nova pergunta
 
-    // Cria os botões de opção
+    // Loop para criar um botão para cada opção
     currentQuestion.options.forEach((optionText, index) => {
         const button = document.createElement('button');
         button.textContent = optionText;
         button.classList.add('option-button');
-        
-        // Atribui o ID para podermos manipular o estilo depois
         button.id = 'option-' + index; 
         
-        // Define a função de clique
+        // Define que ao clicar, a função checkAnswer será chamada
         button.onclick = () => checkAnswer(index, currentQuestion.answer);
         
         optionsContainer.appendChild(button);
     });
 }
 
-// --- 5. Função: Verificar a Resposta ---
+// --- 5. FUNÇÃO: Verificar a Resposta ---
 function checkAnswer(selectedIndex, correctAnswerIndex) {
-    if (answered) return; 
+    if (answered) return; // Se já respondeu, ignora cliques
     answered = true;
 
     const selectedButton = document.getElementById('option-' + selectedIndex);
@@ -83,24 +81,24 @@ function checkAnswer(selectedIndex, correctAnswerIndex) {
     if (selectedIndex === correctAnswerIndex) {
         score++;
         resultElement.textContent = '✅ Resposta Correta! +1 Ponto';
-        selectedButton.classList.add('correct');
+        selectedButton.classList.add('correct'); // Aplica o estilo CSS de sucesso
     } else {
         resultElement.textContent = '❌ Resposta Errada.';
-        selectedButton.classList.add('wrong');
-        // Mostra a resposta certa
+        selectedButton.classList.add('wrong'); // Aplica o estilo CSS de erro
+        // Destaca a resposta certa
         document.getElementById('option-' + correctAnswerIndex).classList.add('correct');
     }
 
-    // Avança para a próxima pergunta após um pequeno delay de 2 segundos
+    // Espera 2 segundos antes de avançar para a próxima pergunta
     setTimeout(() => {
         currentQuestionIndex++;
         loadQuestion();
     }, 2000);
 }
 
-// --- 6. Função: Exibir Resultados Finais ---
+// --- 6. FUNÇÃO: Exibir Resultados Finais ---
 function showResults() {
-    questionElement.textContent = '🐬 Quiz Concluído!';
+    questionElement.textContent = '🐬 Quiz Concluído! 💖';
     optionsContainer.innerHTML = '';
     resultElement.innerHTML = `
         <p>Sua pontuação final é: <strong>${score} de ${quiz.length}</strong>.</p>
@@ -109,12 +107,12 @@ function showResults() {
     `;
 }
 
-// --- 7. Função: Reiniciar o Jogo ---
+// --- 7. FUNÇÃO: Reiniciar o Jogo ---
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     loadQuestion();
 }
 
-// Inicia o quiz automaticamente quando a página é carregada
+// Inicia o quiz assim que a página é carregada
 document.addEventListener('DOMContentLoaded', loadQuestion);
