@@ -1,14 +1,11 @@
-/* ==================================== */
-/* 1. IMPORTAÇÃO E RESET BÁSICO (Topzeira) */
-/* ==================================== */
-
-/* Importando a fonte Poppins e um toque de elegância com Dosis */
+/* Importando fontes modernas para títulos e textos */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
+/* --- 1. Corpo da Página (Fundo e Fonte Global) --- */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f8ff; /* Azul Céu Suave para um toque aquático */
-    color: #1a1a2e; /* Azul Marinho Escuro para legibilidade */
+    background-color: #f0f8ff; /* Azul Céu Suave */
+    color: #1a1a2e;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -19,14 +16,10 @@ body {
     align-items: center;
 }
 
-/* ==================================== */
-/* 2. CABEÇALHO (Themed Header) */
-/* ==================================== */
-
+/* --- 2. Cabeçalho (O Título Grande) --- */
 header {
     width: 100%;
-    background-color: #1e8449; /* Verde Amazônia */
-    background-image: linear-gradient(135deg, #1abc9c 0%, #1e8449 100%); /* Gradiente vibrante */
+    background-image: linear-gradient(135deg, #1abc9c 0%, #1e8449 100%); /* Gradiente Verde Amazônia */
     color: #ffffff;
     padding: 40px 20px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -35,20 +28,10 @@ header {
 header h1 {
     font-family: 'Dosis', sans-serif;
     font-size: 3em;
-    font-weight: 700;
-    margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
-header p {
-    font-style: italic;
-    opacity: 0.9;
-}
-
-/* ==================================== */
-/* 3. CONTAINER PRINCIPAL (Card Design) */
-/* ==================================== */
-
+/* --- 3. Container Principal (O Card Flutuante) --- */
 .quiz-container {
     max-width: 650px;
     width: 90%;
@@ -56,27 +39,18 @@ header p {
     padding: 40px;
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(30, 132, 73, 0.1); /* Sombra e Borda de Destaque */
+    /* Sombra Dupla para efeito 3D e Borda de Destaque */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(30, 132, 73, 0.1); 
     border: 1px solid #ddd;
-    animation: fadeIn 1s ease-out; /* Animação de entrada */
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==================================== */
-/* 4. PERGUNTA E BOTÕES */
-/* ==================================== */
-
+/* --- 4. Estilo da Pergunta e Botões --- */
 .question {
     font-family: 'Dosis', sans-serif;
     font-size: 1.7em;
     font-weight: 700;
-    color: #1e8449; /* Cor da Amazônia */
+    color: #1e8449; /* Verde de Destaque */
     margin-bottom: 35px;
-    line-height: 1.4;
 }
 
 .options {
@@ -88,48 +62,30 @@ header p {
 .option-button, .quiz-container button {
     background-color: #ffffff;
     color: #1a1a2e;
-    border: 2px solid #a9dfbf; /* Borda suave */
+    border: 2px solid #a9dfbf; 
     padding: 15px 20px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 600;
-    transition: all 0.3s ease; /* Transição suave */
+    transition: all 0.3s ease; /* Transições suaves para animação */
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .option-button:hover, .quiz-container button:hover {
-    background-color: #e0f8f3; /* Fundo suave ao passar o mouse */
+    background-color: #e0f8f3; 
     color: #1e8449;
     border-color: #1e8449;
-    transform: translateY(-3px); /* Efeito 3D sutil */
+    transform: translateY(-3px); /* Efeito de "subir" ao passar o mouse */
 }
 
-/* ==================================== */
-/* 5. FEEDBACK E RESULTADOS */
-/* ==================================== */
-
-#result {
-    font-size: 1.3em;
-    font-weight: 700;
-    margin-top: 30px;
-    padding: 15px;
-    border-radius: 10px;
-    animation: slideUp 0.5s ease-out;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Estilos de feedback (Cores Temáticas) */
+/* --- 5. Estilos de Feedback (Usados pelo JavaScript) --- */
 .correct {
     background-color: #27ae60 !important; /* Verde Sucesso */
     color: white !important;
     border-color: #1e8449 !important;
-    transform: scale(1.03); /* Leve zoom para destacar */
+    transform: scale(1.03); 
 }
 
 .wrong {
@@ -138,17 +94,10 @@ header p {
     border-color: #c0392b !important;
 }
 
-/* Estilo do botão de Reiniciar (Destaque) */
+/* Estilo do botão de Reiniciar */
 .quiz-container button[onclick="restartQuiz()"] {
-    background-color: #f39c12; /* Laranja/Ouro para Recompensa/Ação */
+    background-color: #f39c12; /* Laranja de Ação */
     color: white;
-    border: 2px solid #e67e22;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-.quiz-container button[onclick="restartQuiz()"]:hover {
-    background-color: #e67e22;
-    transform: translateY(-2px);
+    border: none;
+    margin-top: 20px;
 }
