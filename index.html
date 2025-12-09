@@ -1,19 +1,29 @@
-index.html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz do Boto-Cor-de-Rosa</title>
+    <title>Quiz dos Botos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Quiz do Boto-Cor-de-Rosa</h1>
+    <h1 class="titulo">🐬 Quiz dos Botos 🐬</h1>
 
-    <div id="quiz-container">
+    <!-- MENU INICIAL -->
+    <div id="menu">
+        <h2>Escolha o Quiz</h2>
+        <button class="btn-menu" onclick="startQuiz('rosa')">💗 Boto-Cor-de-Rosa</button>
+        <button class="btn-menu" onclick="startQuiz('tucuxi')">💙 Boto Tucuxi</button>
+    </div>
+
+    <!-- ÁREA DO QUIZ -->
+    <div id="quiz-container" class="hidden">
+        <h2 id="quiz-title"></h2>
         <p id="question"></p>
+
         <div id="options"></div>
+
         <button id="next-btn" onclick="nextQuestion()">Próxima</button>
     </div>
 
