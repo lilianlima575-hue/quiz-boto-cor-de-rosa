@@ -3,27 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz dos Botos Amazônicos</title>
+    <title>Projeto Mais Ciência: Botos da Amazônia</title>
     <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        /* Ajustes para o modo de apresentação (Slides 1 e 2) */
+        .presentation-slide {
+            max-width: 1000px;
+            width: 95%;
+            margin: 40px auto;
+            padding: 50px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            min-height: 80vh; /* Ocupa a maior parte da tela */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente o conteúdo */
+        }
+
+        /* Título Principal do Slide 1 */
+        .slide-title {
+            font-family: 'Dosis', sans-serif;
+            font-size: 3.5em;
+            color: #1e8449; /* Verde Amazônia */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Agradecimento pela Bolsa */
+        .scholarship-note {
+            font-size: 1.5em;
+            color: #fe6860; /* Rosa/Coral de destaque */
+            font-style: italic;
+            border-top: 3px solid #1abc9c;
+            padding-top: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Estilos para o Slide de Comparação Científica */
+        .slide-content h3 {
+            color: #fe6860;
+            border-left: 5px solid #fe6860;
+            padding-left: 15px;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+        .slide-content ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 1.2em;
+        }
+        .slide-content li {
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+        }
+        .cientific-term {
+            font-weight: bold;
+            color: #1a1a2e;
+        }
+
+        /* Esconder o quiz inicialmente e mostrar os slides */
+        .quiz-active { display: none; }
+        .slide-active { display: block; }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>🐬 Quiz: Boto Cor-de-Rosa & Tucuxi 💖</h1>
-        <p>Teste seus conhecimentos sobre os fascinantes golfinhos de água doce da Amazônia.</p>
+        <h1>Projeto Mais Ciência: Botos da Amazônia</h1>
+        <p>Apresentado por: [Seu Nome]</p>
     </header>
 
-    <main>
-        <div class="quiz-container">
-            <div class="question">Carregando Quiz...</div>
+    <main id="main-content">
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="option-button" onclick="showSlide(1)">1. Introdução</button>
+            <button class="option-button" onclick="showSlide(2)">2. Explicação Científica</button>
+            <button class="option-button" onclick="showSlide(3)">3. Quiz Interativo</button>
+        </div>
 
-            <div class="options">
+        <div id="slide-1" class="presentation-slide slide-active">
+            <h1 class="slide-title">Análise Comparativa: Cetáceos Fluviais da Amazônia</h1>
+            
+            <p style="font-size: 1.6em; text-align: center; margin-bottom: 40px;">
+                Bem-vindos à nossa imersão na biodiversidade aquática! Nosso projeto foca na <span class="cientific-term">Morfologia e Ecologia</span> do Boto Cor-de-Rosa e do Boto Tucuxi.
+            </p>
+
+            <div class="scholarship-note">
+                🏆 Este projeto foi desenvolvido com o apoio da Bolsa [Nome da Bolsa ou Programa] concedida pelo [Nome da Instituição]. Agradeço a oportunidade de aprofundar a pesquisa científica!
             </div>
+        </div>
 
+        <div id="slide-2" class="presentation-slide quiz-active slide-content">
+            <h2>Adaptações e Taxonomia</h2>
+            <p>Apesar de ambos serem golfinhos, suas adaptações para a água doce resultaram em morfologias distintas.</p>
+
+            <hr>
+            
+            <h3>💖 Boto Cor-de-Rosa (*Inia geoffrensis*)</h3>
+            <ul>
+                <li><span class="cientific-term">CLASSIFICAÇÃO:</span> Família Iniidae. Considerado um golfinho de rio primitivo.</li>
+                <li><span class="cientific-term">MORFOLOGIA ÚNICA:</span> <span class="cientific-term">Vértebras cervicais livres</span> (não fundidas), permitindo alta **flexibilidade cervical** (girar o pescoço em 90°), ideal para ambientes de <span class="cientific-term">igapó</span>.</li>
+                <li><span class="cientific-term">NADADEIRA DORSAL:</span> Reduzida a uma **crista dorsal**.</li>
+            </ul>
+
+            <hr>
+
+            <h3>⚫ Boto Tucuxi (*Sotalia fluviatilis*)</h3>
+            <ul>
+                <li><span class="cientific-term">CLASSIFICAÇÃO:</span> Família Delphinidae. Geneticamente próximo dos golfinhos oceânicos.</li>
+                <li><span class="cientific-term">MORFOLOGIA:</span> Corpo compacto com <span class="cientific-term">vértebras cervicais fundidas</span>, limitando a flexibilidade.</li>
+                <li><span class="cientific-term">NADADEIRA DORSAL:</span> Possui uma **barbatana dorsal triangular** bem desenvolvida.</li>
+                <li><span class="cientific-term">HÁBITO:</span> Altamente social, observado em agrupamentos maiores.</li>
+            </ul>
+        </div>
+
+        <div id="slide-3" class="quiz-container quiz-active">
+            <div class="question">Clique no botão Iniciar para testar seus conhecimentos!</div>
+            <div class="options">
+                <button id="start-quiz-btn" class="option-button" onclick="loadQuiz()">Iniciar Quiz Interativo</button>
+            </div>
             <div id="result"></div>
         </div>
     </main>
-
+    
     <script src="script.js"></script>
+    
+    <script>
+        // Funções de Controle da Apresentação
+
+        // Esta função garante que apenas o slide selecionado seja mostrado
+        function showSlide(slideNumber) {
+            // Esconde todos os slides
+            document.querySelectorAll('.presentation-slide, .quiz-container').forEach(el => {
+                el.classList.add('quiz-active'); // Usa a classe do CSS para esconder
+                el.classList.remove('slide-active'); 
+            });
+
+            // Mostra o slide selecionado
+            const targetId = 'slide-' + slideNumber;
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.classList.remove('quiz-active');
+                targetElement.classList.add('slide-active');
+            }
+        }
+        
+        // Função para iniciar o quiz (chama a função loadQuestion do script.js)
+        function loadQuiz() {
+            // Garante que a função loadQuestion do script.js é chamada
+            if (typeof loadQuestion === 'function') {
+                loadQuestion();
+            } else {
+                document.getElementById('slide-3').innerHTML = '<p style="color:red;">Erro: O arquivo script.js não foi carregado corretamente!</p>';
+            }
+        }
+
+        // Garante que a apresentação comece no Slide 1
+        document.addEventListener('DOMContentLoaded', () => {
+             // O script.js tem o loadQuestion no final, o que pode iniciar o quiz
+             // Se o quiz iniciar, precisamos parar e começar no slide 1.
+             if (document.getElementById('slide-3').querySelector('.options').children.length > 0) {
+                 // Se o JS já carregou a primeira pergunta, esconde o quiz e mostra o slide 1
+                 showSlide(1); 
+             }
+        });
+
+    </script>
 </body>
 </html>
