@@ -1,148 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz do Boto Cor-de-Rosa</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffe6f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .quiz-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      max-width: 500px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #ff66a3;
-    }
-
-    .question {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-
-    .options button {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-      background-color: #ffb3cc;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
-
-    .options button:hover {
-      background-color: #ff66a3;
-    }
-
-    .result {
-      font-size: 1.2em;
-      margin-top: 20px;
-      font-weight: bold;
-      color: #ff3366;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz dos Botos Amazônicos</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-<div class="quiz-container">
-  <h1>Quiz do Boto Cor-de-Rosa</h1>
-  <div class="question" id="question"></div>
-  <div class="options">
-    <button id="option0" onclick="checkAnswer(0)"></button>
-    <button id="option1" onclick="checkAnswer(1)"></button>
-  </div>
-  <div class="result" id="result"></div>
-</div>
+    <header>
+        <h1>🐬 Quiz: Boto Cor-de-Rosa & Tucuxi 💖</h1>
+        <p>Teste seus conhecimentos sobre os fascinantes golfinhos de água doce da Amazônia.</p>
+    </header>
 
-<script>
-  const quiz = [
-    {
-      question: "Onde vive o boto cor-de-rosa?",
-      options: ["Nos rios da Amazônia", "Nos oceanos do mundo"],
-      answer: 0
-    },
-    {
-      question: "O que o boto cor-de-rosa costuma comer?",
-      options: ["Frutas das árvores da floresta", "Peixes e pequenos animais aquáticos"],
-      answer: 1
-    },
-    {
-      question: "Qual é a principal ameaça ao boto cor-de-rosa?",
-      options: ["Poluição e desmatamento", "Predadores naturais"],
-      answer: 0
-    },
-    {
-      question: "Qual característica é típica do boto cor-de-rosa?",
-      options: ["Sua cor rosada e nariz alongado", "Suas asas para voar"],
-      answer: 0
-    },
-    {
-      question: "Por que o boto cor-de-rosa é importante para o ecossistema?",
-      options: ["Porque ajuda a controlar a população de peixes e manter o equilíbrio do rio", "Porque planta árvores na floresta"],
-      answer: 0
-    },
-    {
-      question: "Qual é o comportamento curioso do boto cor-de-rosa?",
-      options: ["Ele gosta de interagir com pessoas em algumas regiões", "Ele constrói ninhos de folhas"],
-      answer: 0
-    },
-    {
-      question: "Quando o boto cor-de-rosa fica rosado, isso indica:",
-      options: ["Que ele está adulto ou ativo", "Que está doente"],
-      answer: 0
-    }
-  ];
+    <main>
+        <div class="quiz-container">
+            <div class="question">Clique em Iniciar para começar!</div>
 
-  let currentQuestion = 0;
+            <div class="options">
+                <button id="start-button" onclick="loadQuestion()">Iniciar Quiz</button>
+            </div>
 
-  function showQuestion() {
-    document.getElementById("question").innerText = quiz[currentQuestion].question;
-    document.getElementById("option0").innerText = quiz[currentQuestion].options[0];
-    document.getElementById("option1").innerText = quiz[currentQuestion].options[1];
-    document.getElementById("result").innerText = "";
-  }
+            <div id="result"></div>
+        </div>
+    </main>
 
-  function checkAnswer(selected) {
-    const result = document.getElementById("result");
-    if (selected === quiz[currentQuestion].answer) {
-      result.innerText = "✅ Resposta correta!";
-    } else {
-      result.innerText = "❌ Resposta incorreta!";
-    }
-
-    // Avança para a próxima pergunta após 1.5s
-    setTimeout(() => {
-      currentQuestion++;
-      if (currentQuestion < quiz.length) {
-        showQuestion();
-      } else {
-        document.getElementById("question").innerText = "Fim do quiz! 🎉";
-        document.querySelector(".options").style.display = "none";
-        result.innerText = "";
-      }
-    }, 1500);
-  }
-
-  // Inicia o quiz
-  showQuestion();
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
