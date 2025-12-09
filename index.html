@@ -1,11 +1,22 @@
 index.html
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do Boto-Cor-de-Rosa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Funcionou! 🎉</h1>
+
+    <h1>Quiz do Boto-Cor-de-Rosa</h1>
+
+    <div id="quiz-container">
+        <p id="question"></p>
+        <div id="options"></div>
+        <button id="next-btn" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
