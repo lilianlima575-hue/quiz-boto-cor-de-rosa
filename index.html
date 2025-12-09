@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início | Projeto Mais Ciência</title>
     <link rel="stylesheet" href="style.css"> 
-    <style>
-        /* Estilo local para manter o menu principal compacto */
-        .game-menu {
-            max-width: 500px; 
-            margin-top: 100px; 
-            padding: 30px; 
-        }
-    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">🔬 Projeto Mais Ciência</div>
+        <a href="index.html" class="logo">🔬 Projeto Mais Ciência</a>
         
-        <div class="menu-toggle">
+        <div class="menu-toggle" onclick="toggleMenu()">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -61,5 +53,12 @@
         <p>Desenvolvido com o objetivo de fomentar o estudo de Ciências e Biologia.</p>
     </footer>
 
-    </body>
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
 </html>
