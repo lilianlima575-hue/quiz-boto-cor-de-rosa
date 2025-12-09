@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
-/* --- ESQUEMA DE CORES: TERMINAL DIGITAL / HACKER --- */
+/* --- ESQUEMA DE CORES: AZUL ESCURO E CLARO --- */
 
-/* Fundo Geral: Preto Profundo */
 body {
-    font-family: 'Share Tech Mono', monospace; /* Fonte com estilo de terminal */
-    background-color: #0d0d0d; /* Quase preto */
-    color: #00ff00; /* Verde Neon */
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f7; /* Cinza/Azul Claro Quase Branco */
+    color: #1a1a2e;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -17,152 +16,125 @@ body {
     align-items: center;
 }
 
-/* Cabeçalho: Tema Tecnológico */
 header {
     width: 100%;
-    background-color: #003300; /* Verde Escuro Fosco */
-    color: #39ff14; /* Verde Neon Brilhante */
+    background-color: #1a237e; /* Azul Índigo Escuro */
+    color: #ffffff;
     padding: 40px 20px;
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5); /* Efeito de brilho neon */
-    border-bottom: 5px solid #39ff14;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
-    font-family: 'Orbitron', sans-serif; /* Fonte futurista para título */
-    font-size: 3.5em;
+    font-family: 'Dosis', sans-serif;
+    font-size: 3em;
     font-weight: 700;
-    letter-spacing: 5px;
-    text-shadow: 0 0 10px #39ff14; /* Sombra Neon no Título */
+    letter-spacing: 2px;
 }
 
-header p {
-    font-size: 1.2em;
-    color: #00ff00;
-}
+/* --- ESTILO GERAL E CARDS --- */
 
-/* --- ESTILO GERAL E MENU DE JOGO --- */
-
-/* Card Principal (Menu/Quiz) */
-.game-menu, .quiz-container {
+.game-menu, .quiz-container, .study-container {
     max-width: 800px;
     width: 90%;
     margin-top: 50px;
+    margin-bottom: 50px;
     padding: 40px;
-    background-color: #1a1a1a; /* Cinza Escuro */
-    border-radius: 5px; /* Bordas quadradas */
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); /* Brilho verde sutil */
-    border: 1px solid #006600; /* Borda de terminal */
-    color: #00ff00; /* Texto principal em Neon */
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 5px rgba(26, 35, 126, 0.05); 
+    border: 1px solid #e0e0e0;
+    text-align: left; /* Alinhamento do texto para leitura */
 }
 
-.menu-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5em;
-    color: #39ff14; 
+.menu-title, .study-title {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.2em;
+    color: #3949ab; /* Azul Médio */
     margin-bottom: 30px;
     text-align: center;
-    border-bottom: 2px solid #006600;
+    border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
 }
 
-/* Links do Menu (Estilo de Botão de Comando) */
-.game-link {
+/* Links/Botões de Ação (Menu e Quiz) */
+.game-link, .option-button, #start-quiz-btn, #start-study-btn {
     display: block;
-    background-color: #0d0d0d; 
-    color: #00ff00; 
-    padding: 18px 20px;
+    width: 100%;
+    background-color: #e3f2fd; /* Azul clarinho */
+    color: #1a237e; /* Azul Escuro */
+    padding: 15px 20px;
     margin-bottom: 15px;
-    border-radius: 3px;
+    border-radius: 8px;
     text-decoration: none;
-    font-size: 1.3em;
-    font-weight: 400;
-    transition: background-color 0.3s, border-color 0.3s;
-    text-align: left;
-    border: 1px solid #00ff00; /* Borda Neon */
-    box-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    border: 2px solid #bbdefb; 
+    cursor: pointer;
 }
-.game-link:hover {
-    background-color: #004d00; /* Fundo mais escuro no hover */
-    color: #ffffff;
-    border-color: #ffffff;
-    transform: none; 
+.game-link:hover, .option-button:hover, #start-quiz-btn:hover, #start-study-btn:hover {
+    background-color: #64b5f6; /* Azul médio no hover */
+    color: white;
+    transform: translateY(-2px);
+    border-color: #42a5f5;
 }
 
-/* --- ESTILO DO QUIZ (TERMINAL) --- */
+/* --- ESTILO DE ESTUDO (TEXTO GRANDE) --- */
+
+.study-content h3 {
+    font-family: 'Dosis', sans-serif;
+    color: #1a237e;
+    margin-top: 30px;
+    font-size: 1.6em;
+    border-left: 5px solid #64b5f6;
+    padding-left: 15px;
+}
+
+.study-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+/* --- ESTILO DO QUIZ --- */
+
+#game-status {
+    padding: 10px 15px;
+    border: 2px solid #64b5f6;
+    border-radius: 8px;
+    background-color: #e3f2fd;
+    color: #1a237e;
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.1em;
+}
 
 .question {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8em; 
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.6em; 
     font-weight: 700;
-    color: #39ff14; /* Neon principal */
+    color: #3949ab; 
     margin-bottom: 25px; 
+    text-align: left;
 }
 
-/* Estilo para Botões de Opção */
 .options {
-    display: flex; /* Para melhorar a distribuição */
+    display: flex;
     flex-direction: column;
-    gap: 15px; 
-}
-.option-button {
-    background-color: #0d0d0d;
-    color: #00ff00;
-    border: 1px solid #006600; 
-    padding: 15px 20px; 
-    border-radius: 3px;
-    box-shadow: none;
-    text-align: left;
-    cursor: pointer;
-    width: 100%;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1em;
-}
-.option-button:hover {
-    background-color: #004d00;
-    color: #ffffff;
-    border-color: #39ff14;
-    transform: none;
+    gap: 10px;
 }
 
 /* Feedback de Cores (Funcionalidade) */
 .correct {
-    background-color: #009900 !important; /* Verde Brilhante Escuro */
+    background-color: #43a047 !important; /* Verde de sucesso */
     color: white !important;
-    border-color: #00ff00 !important;
+    border-color: #2e7d32 !important;
 }
 
 .wrong {
-    background-color: #990000 !important; /* Vermelho Erro */
+    background-color: #e53935 !important; /* Vermelho de erro */
     color: white !important;
-    border-color: #ff0000 !important;
-}
-
-/* Estilo do Placar Fixo (#game-status) */
-#game-status {
-    padding: 10px 15px;
-    border: 2px solid #009900; 
-    border-radius: 3px;
-    background-color: #001a00; /* Fundo bem escuro */
-    color: #39ff14;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 1.2em;
-    text-shadow: 0 0 5px #00ff00;
-}
-
-/* Botão de voltar ao menu */
-.quiz-container a.option-button {
-    text-align: center;
-    background-color: #000000;
-    color: #39ff14;
-    border-color: #00ff00;
-}
-
-/* Estilo para a mensagem final de resultado */
-#result p {
-    color: #39ff14 !important;
-    text-shadow: 0 0 5px #00ff00;
-}
-#result button {
-    margin-top: 20px;
+    border-color: #c62828 !important;
 }
