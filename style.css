@@ -1,85 +1,59 @@
+style.css
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
+    background: linear-gradient(#ff9acb, #ff69b4);
+    color: white;
     text-align: center;
-    background: linear-gradient(#b3e5fc, #e1bee7);
-    min-height: 100vh;
+}
+
+.container {
     padding: 20px;
-    color: #333;
 }
 
-.titulo {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-#menu {
-    background: white;
-    width: 350px;
-    margin: auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #0003;
-}
-
-.btn-menu {
+.menu button {
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: 10px auto;
     padding: 15px;
-    margin: 10px 0;
-    background: #6200ea;
-    color: white;
-    border: none;
     font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.btn-menu:hover {
-    background: #4500b5;
-}
-
-#quiz-container {
     background: white;
-    width: 350px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #0003;
-}
-
-#options button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin: 8px 0;
-    background: #ff80ab;
-    color: white;
+    color: #ff2f91;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#options button:hover {
-    background: #ff4f94;
-}
-
-#next-btn {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    background: #00c853;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 12px;
     cursor: pointer;
 }
 
-#next-btn:hover {
-    background: #009624;
+.menu button:hover {
+    background: #ffe0f0;
 }
 
 .hidden {
     display: none;
+}
+
+#answers button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    color: #ff2f91;
+    cursor: pointer;
+}
+
+#answers button:hover {
+    background: #ffe0f0;
+}
+
+#nextBtn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #fff;
+    color: #ff2f91;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
