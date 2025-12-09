@@ -1,32 +1,40 @@
-index.html<!DOCTYPE html>
+index.htm
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha seu Quiz</title>
+    <title>Projeto Mais Ciência - Botos da Amazônia</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main class="container">
+    <header>
+        <h1>Projeto Científico: Conservação dos Botos da Amazônia</h1>
+        <p class="sub">Um estudo interativo sobre o Boto-cor-de-rosa e o Tucuxi</p>
+    </header>
 
-        <h1>Escolha um Quiz</h1>
+    <section class="sobre">
+        <h2>Sobre o Projeto</h2>
+        <p>
+            Este projeto foi criado para o programa <strong>Mais Ciência</strong>, com o objetivo de 
+            conscientizar sobre a importância dos botos amazônicos.  
+            O site traz informações científicas e dois quizzes educativos para testar 
+            seus conhecimentos sobre cada espécie.
+        </p>
+    </section>
 
-        <div class="menu">
-            <button onclick="startQuiz('boto')">🐬 Quiz do Boto-Cor-de-Rosa</button>
-            <button onclick="startQuiz('tucuxi')">🐳 Quiz do Tucuxi</button>
+    <section class="opcoes">
+        <h2>Escolha seu Quiz</h2>
+
+        <div class="botoes">
+            <a class="botao rosa" href="quiz-rosa.html">🐬 Quiz: Boto-cor-de-rosa</a>
+            <a class="botao azul" href="quiz-tucuxi.html">🐬 Quiz: Tucuxi</a>
         </div>
+    </section>
 
-        <div id="quiz-area" class="hidden">
-            <h2 id="quiz-title"></h2>
-            <p id="question"></p>
-
-            <div id="answers"></div>
-
-            <button id="nextBtn" class="hidden" onclick="nextQuestion()">Próxima</button>
-        </div>
-
-    </main>
-
-    <script src="script.js"></script>
+    <footer>
+        <p>Desenvolvido por Lilian Lima • Programa Mais Ciência</p>
+    </footer>
 </body>
 </html>
