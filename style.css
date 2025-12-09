@@ -1,4 +1,4 @@
-/* Importando fontes modernas */
+/* 1. Estilo Verde/Azul e 3. Minimalismo */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
 /* Fundo Temático e Reset */
@@ -32,56 +32,56 @@ header h1 {
     letter-spacing: 2px;
 }
 
-/* Card Principal (Container) */
+/* Card Principal (Container do Quiz) */
 .quiz-container {
     max-width: 650px;
     width: 90%;
     margin-top: 50px;
-    padding: 40px;
+    padding: 30px; 
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(30, 132, 73, 0.1); 
     border: 1px solid #ddd;
 }
 
-/* Pergunta */
+/* Pergunta (Minimalista) */
 .question {
     font-family: 'Dosis', sans-serif;
-    font-size: 1.7em;
+    font-size: 1.6em; 
     font-weight: 700;
     color: #1e8449; 
-    margin-bottom: 35px;
+    margin-bottom: 25px; 
 }
 
 /* Botões de Opção */
 .options {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px; 
 }
 
 .option-button, .quiz-container button {
     background-color: #ffffff;
     color: #1a1a2e;
     border: 2px solid #a9dfbf; 
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 12px 20px; 
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1em; 
     font-weight: 600;
-    transition: all 0.3s ease; 
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: left; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
 }
 
 .option-button:hover, .quiz-container button:hover {
     background-color: #e0f8f3; 
     color: #1e8449;
     border-color: #1e8449;
-    transform: translateY(-3px); 
+    transform: translateY(-2px); 
 }
 
-/* Feedback de Cores */
+/* Feedback de Cores (2. Funcionalidade) */
 .correct {
     background-color: #27ae60 !important; 
     color: white !important;
@@ -94,20 +94,13 @@ header h1 {
     border-color: #c0392b !important;
 }
 
-/* Botão de Reiniciar */
-.quiz-container button[onclick="restartQuiz()"] {
-    background-color: #f39c12; 
-    color: white;
-    border: none;
-    margin-top: 20px;
-}
 /* Estilo para a explicação da resposta */
 .explanation-text {
     margin-top: 15px;
     padding: 10px;
-    background-color: #e0f8f3; /* Fundo suave para a caixa da explicação */
-    border-left: 5px solid #1e8449; /* Borda verde de destaque */
-    font-size: 0.95em;
+    background-color: #e0f8f3; 
+    border-left: 5px solid #1e8449; 
+    font-size: 0.9em; 
     text-align: left;
     border-radius: 4px;
 }
