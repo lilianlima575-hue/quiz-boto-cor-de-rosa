@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Botos da Amazônia</title>
+    <title>Botos da Amazônia - Quiz</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
     <header>
-        <h1>🐬 Quiz: Botos da Amazônia 💖</h1>
-        <p>Teste seus conhecimentos sobre as espécies fluviais.</p>
+        <h1>🐬 JOGO BOTO.EXE 💖</h1>
+        <p>Módulo de Treinamento: Cetáceos Fluviais da Amazônia</p>
     </header>
 
     <main class="quiz-container">
+        
+        <div id="game-status" style="margin-bottom: 20px;">
+            AGUARDANDO INÍCIO...
+        </div>
+        
         <a href="index.html" class="option-button" style="text-align: center; margin-bottom: 20px;">
-            ⬅️ Voltar ao Menu de Jogos
+            ⬅️ Voltar ao Terminal Principal
         </a>
 
-        <div class="question">Clique no botão abaixo para começar o jogo!</div>
+        <div class="question">Clique em "Iniciar Jogo" para carregar a primeira questão...</div>
         <div class="options">
             <button id="start-quiz-btn" class="option-button" onclick="loadQuestion()">Iniciar Jogo</button>
         </div>
-        <div id="result"></div>
+        
+        <div id="result"></div> 
+        
     </main>
-    
+
     <script src="script-botos.js"></script>
+
 </body>
 </html>
