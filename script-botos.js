@@ -35,12 +35,13 @@ let answered = false;
 const questionElement = document.querySelector('.question');
 const optionsContainer = document.querySelector('.options');
 const resultElement = document.getElementById('result'); 
+const statusElement = document.getElementById('game-status'); // NOVO ELEMENTO PLACAR
 
-// --- 3. FUNÇÃO: Carregar a Próxima Pergunta ---
+// --- 3. FUNÇÃO: Carregar a Próxima Pergunta (Com a) b) c) d)) ---
 function loadQuestion() {
     answered = false;
     optionsContainer.innerHTML = ''; 
-    resultElement.innerHTML = ''; 
+    resultElement.innerHTML = ''; // Limpa o feedback de acerto/erro
 
     if (currentQuestionIndex >= quiz.length) {
         showResults(); 
@@ -49,12 +50,17 @@ function loadQuestion() {
 
     const currentQuestion = quiz[currentQuestionIndex];
     
-    // Mostra o número da pergunta para dar a sensação de progresso no jogo
-    questionElement.textContent = `Pergunta ${currentQuestionIndex + 1}/${quiz.length}: ${currentQuestion.question}`;
+    questionElement.textContent = `>>> Q${currentQuestionIndex + 1}: ${currentQuestion.question}`;
 
+    // Array com as letras para prefixar as opções
+    const letters = ['a)', 'b)', 'c)', 'd)'];
+    
     currentQuestion.options.forEach((optionText, index) => {
         const button = document.createElement('button');
-        button.textContent = optionText;
+        
+        // Adiciona a letra da opção (a) b) c) d))
+        button.textContent = `${letters[index]} ${optionText}`;
+        
         button.classList.add('option-button');
         button.id = 'option-' + index; 
         
@@ -63,17 +69,14 @@ function loadQuestion() {
         optionsContainer.appendChild(button);
     });
     
-    updateScoreDisplay();
+    updateStatusDisplay(); // Sempre chama para manter o placar atualizado
 }
 
-// --- 4. FUNÇÃO: Atualizar o Placar do Jogo ---
-function updateScoreDisplay() {
-    const scoreMessage = `Pontos: ${score} | Jogada: ${currentQuestionIndex}/${quiz.length}`;
-    
-    if (currentQuestionIndex < quiz.length) {
-         // Exibe o placar no elemento de resultado temporariamente
-         resultElement.innerHTML = `<p style="font-size: 1em; color: #1e8449;">${scoreMessage}</p>`;
-    }
+// --- 4. FUNÇÃO: Atualizar o Placar Fixo ---
+function updateStatusDisplay() {
+     // Apenas atualiza o placar fixo
+    const scoreMessage = `[STATUS] PERGUNTA ${currentQuestionIndex + 1}/${quiz.length} | SCORE: ${score} PONTOS`;
+    statusElement.textContent = scoreMessage;
 }
 
 
@@ -88,17 +91,17 @@ function checkAnswer(selectedIndex, correctAnswerIndex) {
 
     if (selectedIndex === correctAnswerIndex) {
         score++;
-        resultFeedback = '🎉 ACERTOU! +1 Ponto!';
+        resultFeedback = '>> [AÇÃO CONCLUÍDA] ACERTOU! +1 Ponto!';
         selectedButton.classList.add('correct');
     } else {
-        resultFeedback = '😔 ERROU...';
+        resultFeedback = '>> [AÇÃO FALHOU] ERROU! Resposta Incorreta.';
         selectedButton.classList.add('wrong');
         document.getElementById('option-' + correctAnswerIndex).classList.add('correct');
     }
     
-    // Feedback de Jogo
-    resultElement.innerHTML = `<p style="font-size: 1.3em;"><strong>${resultFeedback}</strong></p>`;
-    updateScoreDisplay(); // Atualiza o placar
+    // Feedback de Jogo (no elemento #result)
+    resultElement.innerHTML = `<p><strong>${resultFeedback}</strong></p>`;
+    updateStatusDisplay(); // Atualiza o placar fixo imediatamente
 
     // Avança para a próxima pergunta após 2 segundos
     setTimeout(() => {
@@ -109,11 +112,15 @@ function checkAnswer(selectedIndex, correctAnswerIndex) {
 
 // --- 6. FUNÇÃO: Exibir Resultados Finais (Game Over) e Reiniciar ---
 function showResults() {
-    questionElement.textContent = '🏆 FIM DE JOGO! 🏆';
+    questionElement.textContent = '>> [FIM DO PROGRAMA] ANÁLISE CONCLUÍDA.';
     optionsContainer.innerHTML = '';
+    
+    // O status final vai para o elemento #result, e o #game-status é limpo
+    statusElement.textContent = '[STATUS] PROGRAMA FINALIZADO. VERIFICANDO PONTUAÇÃO...'; 
+    
     resultElement.innerHTML = `
-        <p style="font-size: 1.5em; color: #fe6860;">Pontuação Final: <strong>${score} de ${quiz.length}</strong>.</p>
-        <button class="option-button" onclick="restartQuiz()">REINICIAR JOGO</button>
+        <p style="font-size: 1.5em;">>> PONTUAÇÃO FINAL: ${score} DE ${quiz.length}.</p>
+        <button class="option-button" onclick="restartQuiz()">REINICIAR PROGRAMA (RESTART)</button>
     `;
 }
 
@@ -122,3 +129,15 @@ function restartQuiz() {
     score = 0;
     loadQuestion();
 }
+
+// Inicia o quiz ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    // Isso garante que o status inicial seja exibido corretamente
+    if (document.getElementById('start-quiz-btn')) {
+        // Inicializa o game-status para a primeira jogada
+        statusElement.textContent = `[STATUS] AGUARDANDO COMANDO. PERGUNTAS DISPONÍVEIS: ${quiz.length}`;
+    } else {
+        // Se o quiz começar automaticamente (sem botão iniciar), carrega a 1ª pergunta
+        loadQuestion();
+    }
+});
