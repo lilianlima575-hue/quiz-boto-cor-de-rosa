@@ -1,196 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz dos Botos</title>
-
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz do Boto Cor-de-Rosa</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        background: #fce4ec;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      max-width: 500px;
+      text-align: center;
     }
 
     h1 {
-        color: #d81b60;
-        margin-top: 30px;
+      color: #ff66a3;
     }
 
-    .menu {
-        margin-top: 40px;
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 20px;
     }
 
-    .menu button {
-        background: #ff80ab;
-        border: none;
-        padding: 15px 30px;
-        margin: 10px;
-        font-size: 18px;
-        border-radius: 10px;
-        cursor: pointer;
-        color: white;
-        transition: 0.2s;
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #ffb3cc;
+      color: #fff;
+      transition: background-color 0.3s;
     }
 
-    .menu button:hover {
-        background: #ec407a;
+    .options button:hover {
+      background-color: #ff66a3;
     }
 
-    #quizBox {
-        margin-top: 40px;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 0 0 10px #999;
-        display: none;
+    .result {
+      font-size: 1.2em;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ff3366;
     }
-
-    .opcao {
-        display: block;
-        background: #f8bbd0;
-        padding: 10px;
-        margin: 8px 0;
-        border-radius: 6px;
-        cursor: pointer;
-    }
-
-    .opcao:hover {
-        background: #f48fb1;
-    }
-
-    #resultado {
-        font-size: 22px;
-        margin-top: 20px;
-        font-weight: bold;
-    }
-
-</style>
-
+  </style>
 </head>
 <body>
 
-<h1>Quiz dos Botos</h1>
-
-<div class="menu">
-    <button onclick="iniciarQuiz('rosa')">🐬 Boto-Cor-de-Rosa</button>
-    <button onclick="iniciarQuiz('tucuxi')">🐬 Boto Tucuxi</button>
-</div>
-
-<div id="quizBox">
-    <h2 id="pergunta"></h2>
-    <div id="opcoes"></div>
-    <p id="resultado"></p>
+<div class="quiz-container">
+  <h1>Quiz do Boto Cor-de-Rosa</h1>
+  <div class="question" id="question"></div>
+  <div class="options">
+    <button id="option0" onclick="checkAnswer(0)"></button>
+    <button id="option1" onclick="checkAnswer(1)"></button>
+  </div>
+  <div class="result" id="result"></div>
 </div>
 
 <script>
-// ----------------------------
-// PERGUNTAS DOS DOIS QUIZZES
-// ----------------------------
-const quizzes = {
-    rosa: [
-        {
-            pergunta: "Onde o boto-cor-de-rosa vive?",
-            opcoes: ["Amazônia", "Antártida", "África"],
-            correta: 0
-        },
-        {
-            pergunta: "O boto-cor-de-rosa é um:",
-            opcoes: ["Peixe", "Mamífero", "Réptil"],
-            correta: 1
-        },
-        {
-            pergunta: "Qual é a cor típica do boto-cor-de-rosa adulto?",
-            opcoes: ["Cinza", "Branco", "Rosa"],
-            correta: 2
-        }
-    ],
+  const quiz = [
+    {
+      question: "Onde vive o boto cor-de-rosa?",
+      options: ["Nos rios da Amazônia", "Nos oceanos do mundo"],
+      answer: 0
+    },
+    {
+      question: "O que o boto cor-de-rosa costuma comer?",
+      options: ["Frutas das árvores da floresta", "Peixes e pequenos animais aquáticos"],
+      answer: 1
+    },
+    {
+      question: "Qual é a principal ameaça ao boto cor-de-rosa?",
+      options: ["Poluição e desmatamento", "Predadores naturais"],
+      answer: 0
+    },
+    {
+      question: "Qual característica é típica do boto cor-de-rosa?",
+      options: ["Sua cor rosada e nariz alongado", "Suas asas para voar"],
+      answer: 0
+    },
+    {
+      question: "Por que o boto cor-de-rosa é importante para o ecossistema?",
+      options: ["Porque ajuda a controlar a população de peixes e manter o equilíbrio do rio", "Porque planta árvores na floresta"],
+      answer: 0
+    },
+    {
+      question: "Qual é o comportamento curioso do boto cor-de-rosa?",
+      options: ["Ele gosta de interagir com pessoas em algumas regiões", "Ele constrói ninhos de folhas"],
+      answer: 0
+    },
+    {
+      question: "Quando o boto cor-de-rosa fica rosado, isso indica:",
+      options: ["Que ele está adulto ou ativo", "Que está doente"],
+      answer: 0
+    }
+  ];
 
-    tucuxi: [
-        {
-            pergunta: "Onde o boto Tucuxi costuma viver?",
-            opcoes: ["Rios da Amazônia", "Oceano Atlântico", "Lagos do sul"],
-            correta: 0
-        },
-        {
-            pergunta: "O Tucuxi se parece com:",
-            opcoes: ["Golfinho marinho", "Tubarão", "Tartaruga"],
-            correta: 0
-        },
-        {
-            pergunta: "A cor do Tucuxi geralmente é:",
-            opcoes: ["Azul metálico", "Cinza-escuro", "Amarelo"],
-            correta: 1
-        }
-    ]
-};
+  let currentQuestion = 0;
 
-// ----------------------------
-// LÓGICA DO QUIZ
-// ----------------------------
-let perguntas = [];
-let indice = 0;
-let acertos = 0;
+  function showQuestion() {
+    document.getElementById("question").innerText = quiz[currentQuestion].question;
+    document.getElementById("option0").innerText = quiz[currentQuestion].options[0];
+    document.getElementById("option1").innerText = quiz[currentQuestion].options[1];
+    document.getElementById("result").innerText = "";
+  }
 
-function iniciarQuiz(tipo) {
-    perguntas = quizzes[tipo];
-    indice = 0;
-    acertos = 0;
-
-    document.getElementById("quizBox").style.display = "block";
-    mostrarPergunta();
-}
-
-function mostrarPergunta() {
-    const atual = perguntas[indice];
-    document.getElementById("pergunta").innerText = atual.pergunta;
-
-    const opcoesDiv = document.getElementById("opcoes");
-    opcoesDiv.innerHTML = ""; 
-
-    atual.opcoes.forEach((opcao, i) => {
-        const btn = document.createElement("div");
-        btn.className = "opcao";
-        btn.innerText = opcao;
-        btn.onclick = () => verificarResposta(i);
-        opcoesDiv.appendChild(btn);
-    });
-
-    document.getElementById("resultado").innerText = "";
-}
-
-function verificarResposta(i) {
-    if (i === perguntas[indice].correta) {
-        acertos++;
-        document.getElementById("resultado").innerText = "✔ Acertou!";
-        document.getElementById("resultado").style.color = "green";
+  function checkAnswer(selected) {
+    const result = document.getElementById("result");
+    if (selected === quiz[currentQuestion].answer) {
+      result.innerText = "✅ Resposta correta!";
     } else {
-        document.getElementById("resultado").innerText = "❌ Errou!";
-        document.getElementById("resultado").style.color = "red";
+      result.innerText = "❌ Resposta incorreta!";
     }
 
+    // Avança para a próxima pergunta após 1.5s
     setTimeout(() => {
-        indice++;
-        if (indice < perguntas.length) {
-            mostrarPergunta();
-        } else {
-            mostrarResultadoFinal();
-        }
-    }, 900);
-}
+      currentQuestion++;
+      if (currentQuestion < quiz.length) {
+        showQuestion();
+      } else {
+        document.getElementById("question").innerText = "Fim do quiz! 🎉";
+        document.querySelector(".options").style.display = "none";
+        result.innerText = "";
+      }
+    }, 1500);
+  }
 
-function mostrarResultadoFinal() {
-    document.getElementById("pergunta").innerText = "Fim do quiz!";
-    document.getElementById("opcoes").innerHTML = "";
-    document.getElementById("resultado").innerText = `Você acertou ${acertos} de ${perguntas.length}!`;
-}
-
+  // Inicia o quiz
+  showQuestion();
 </script>
 
 </body>
