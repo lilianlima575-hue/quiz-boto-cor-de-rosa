@@ -1,6 +1,7 @@
 quiz-boto-cor-de-rosa/
-     index.html
-     style.css
-     script.js
-     quiz-rosa.html
-     quiz-tucuxi.html
+│
+├── index.html
+├── quiz-rosa.html
+├── quiz-tucuxi.html
+├── style.css
+└── script.js
