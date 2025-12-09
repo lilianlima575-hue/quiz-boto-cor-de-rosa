@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
-/* --- ESQUEMA DE CORES: AZUL ESCURO E CLARO --- */
+/* --- ESQUEMA DE CORES: TERMINAL DIGITAL / HACKER --- */
 
-/* Fundo Geral: Azul Céu Suave */
+/* Fundo Geral: Preto Profundo */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f4f7; /* Cinza/Azul Claro Quase Branco */
-    color: #1a1a2e;
+    font-family: 'Share Tech Mono', monospace; /* Fonte com estilo de terminal */
+    background-color: #0d0d0d; /* Quase preto */
+    color: #00ff00; /* Verde Neon */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -17,107 +17,135 @@ body {
     align-items: center;
 }
 
-/* Cabeçalho: Azul Marinho Escuro */
+/* Cabeçalho: Tema Tecnológico */
 header {
     width: 100%;
-    background-color: #1a237e; /* Azul Índigo Escuro */
-    color: #ffffff;
+    background-color: #003300; /* Verde Escuro Fosco */
+    color: #39ff14; /* Verde Neon Brilhante */
     padding: 40px 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.5); /* Efeito de brilho neon */
+    border-bottom: 5px solid #39ff14;
 }
 
 header h1 {
-    font-family: 'Dosis', sans-serif;
-    font-size: 3em;
+    font-family: 'Orbitron', sans-serif; /* Fonte futurista para título */
+    font-size: 3.5em;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #39ff14; /* Sombra Neon no Título */
 }
 
-/* --- ESTILO GERAL E MENU MINIMALISTA --- */
+header p {
+    font-size: 1.2em;
+    color: #00ff00;
+}
+
+/* --- ESTILO GERAL E MENU DE JOGO --- */
 
 /* Card Principal (Menu/Quiz) */
 .game-menu, .quiz-container {
-    max-width: 700px;
+    max-width: 800px;
     width: 90%;
     margin-top: 50px;
     padding: 40px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 5px rgba(26, 35, 126, 0.1); 
-    border: 1px solid #e0e0e0;
+    background-color: #1a1a1a; /* Cinza Escuro */
+    border-radius: 5px; /* Bordas quadradas */
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); /* Brilho verde sutil */
+    border: 1px solid #006600; /* Borda de terminal */
+    color: #00ff00; /* Texto principal em Neon */
 }
 
 .menu-title {
-    font-family: 'Dosis', sans-serif;
-    font-size: 2.2em;
-    color: #3949ab; /* Azul Médio */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    color: #39ff14; 
     margin-bottom: 30px;
     text-align: center;
-    border-bottom: 2px solid #e0e0e0; /* Linha de separação minimalista */
+    border-bottom: 2px solid #006600;
     padding-bottom: 15px;
 }
 
-/* Links do Menu (Minimalista) */
+/* Links do Menu (Estilo de Botão de Comando) */
 .game-link {
     display: block;
-    background-color: #ffffff; 
-    color: #1a237e; /* Cor do texto é o azul escuro */
-    padding: 15px 20px;
+    background-color: #0d0d0d; 
+    color: #00ff00; 
+    padding: 18px 20px;
     margin-bottom: 15px;
-    border-radius: 8px;
+    border-radius: 3px;
     text-decoration: none;
-    font-size: 1.2em;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.3em;
+    font-weight: 400;
+    transition: background-color 0.3s, border-color 0.3s;
     text-align: left;
-    border: 2px solid #bbdefb; /* Borda fina e clara */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #00ff00; /* Borda Neon */
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
 }
 .game-link:hover {
-    background-color: #e3f2fd; /* Azul clarinho no hover */
-    color: #1a237e;
-    transform: translateY(-2px);
-    border-color: #64b5f6; /* Borda azul médio no hover */
+    background-color: #004d00; /* Fundo mais escuro no hover */
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: none; /* Remove o efeito de levantar para manter o estilo 'flat' */
 }
 
-/* Estilo para Botões e Perguntas (Quiz) */
+/* --- ESTILO DO QUIZ (TERMINAL) --- */
+
 .question {
-    font-family: 'Dosis', sans-serif;
-    font-size: 1.6em; 
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em; 
     font-weight: 700;
-    color: #3949ab; 
+    color: #39ff14; /* Neon principal */
     margin-bottom: 25px; 
 }
+
+/* Estilo para Botões de Opção */
+.options {
+    gap: 10px; 
+}
 .option-button {
-    background-color: #ffffff;
-    color: #1a1a2e;
-    border: 2px solid #bbdefb; 
-    /* Outros estilos de botão permanecem... */
+    background-color: #0d0d0d;
+    color: #00ff00;
+    border: 1px solid #006600; 
+    padding: 15px 20px; 
+    border-radius: 3px;
+    box-shadow: none;
+    text-align: left;
 }
 .option-button:hover {
-    background-color: #e3f2fd; 
-    color: #1a1a2e;
-    border-color: #64b5f6;
-    transform: translateY(-2px); 
+    background-color: #004d00;
+    color: #ffffff;
+    border-color: #39ff14;
+    transform: none;
 }
 
 /* Feedback de Cores (Funcionalidade) */
 .correct {
-    background-color: #43a047 !important; /* Verde mais escuro */
+    background-color: #009900 !important; /* Verde Brilhante Escuro */
     color: white !important;
-    border-color: #2e7d32 !important;
+    border-color: #00ff00 !important;
 }
 
 .wrong {
-    background-color: #e53935 !important; /* Vermelho mais escuro */
+    background-color: #990000 !important; /* Vermelho Erro */
     color: white !important;
-    border-color: #c62828 !important;
+    border-color: #ff0000 !important;
+}
+
+/* Estilo do Placar Fixo */
+#game-status {
+    padding: 10px 15px;
+    border: 2px solid #009900; 
+    border-radius: 3px;
+    background-color: #001a00; /* Fundo bem escuro */
+    color: #39ff14;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px #00ff00;
 }
 
 /* Botão de voltar ao menu */
 .quiz-container a.option-button {
-    text-align: center;
-    background-color: #f5f5f5;
-    color: #1a237e;
-    border-color: #c5cae9;
+    background-color: #000000;
+    color: #39ff14;
+    border-color: #00ff00;
 }
