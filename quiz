@@ -1,0 +1,117 @@
+import os, zipfile
+
+project_root = "/mnt/data/quiz_boto_site"
+if not os.path.exists(project_root):
+    os.makedirs(project_root)
+
+# index.html
+html = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz do Boto-Cor-de-Rosa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz do Boto-Cor-de-Rosa</h1>
+    <div id="quiz"></div>
+    <button id="nextBtn">Próxima</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+"""
+
+css = """
+body {
+  background: #e2f4ff;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0002;
+}
+button {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+}
+"""
+
+js = """
+const quizData = [
+  {
+    q: "Onde vive o boto-cor-de-rosa?",
+    a: ["Amazônia", "Pantanal", "Mato Grosso"],
+    c: 0
+  },
+  {
+    q: "O boto é um:",
+    a: ["Peixe", "Mamífero", "Réptil"],
+    c: 1
+  },
+  {
+    q: "Por que ele pode ser rosa?",
+    a: ["É pintado", "Por causa dos vasos sanguíneos", "É venenoso"],
+    c: 1
+  }
+];
+
+let index = 0;
+let quiz = document.getElementById("quiz");
+let nextBtn = document.getElementById("nextBtn");
+let score = 0;
+
+function loadQuestion() {
+  let q = quizData[index];
+  quiz.innerHTML = `
+    <h2>${q.q}</h2>
+    ${q.a.map((alt,i)=>`
+      <label>
+        <input type="radio" name="opt" value="${i}">
+        ${alt}
+      </label><br>
+    `).join("")}
+  `;
+}
+
+nextBtn.onclick = () => {
+  let checked = document.querySelector("input[name='opt']:checked");
+  if (!checked) return alert("Escolha uma opção!");
+
+  if (parseInt(checked.value) === quizData[index].c) score++;
+
+  index++;
+  if (index < quizData.length) loadQuestion();
+  else quiz.innerHTML = `<h2>Você acertou ${score} de ${quizData.length}!</h2>`;
+};
+
+loadQuestion();
+"""
+
+# write files
+with open(os.path.join(project_root, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html)
+with open(os.path.join(project_root, "style.css"), "w", encoding="utf-8") as f:
+    f.write(css)
+with open(os.path.join(project_root, "script.js"), "w", encoding="utf-8") as f:
+    f.write(js)
+
+# zip
+zip_path = "/mnt/data/quiz_boto_site.zip"
+with zipfile.ZipFile(zip_path, "w") as zipf:
+    for root, dirs, files in os.walk(project_root):
+        for file in files:
+            fp = os.path.join(root, file)
+            arc = os.path.relpath(fp, project_root)
+            zipf.write(fp, arc)
+
+zip_path
