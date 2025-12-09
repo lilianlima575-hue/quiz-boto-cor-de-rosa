@@ -1,4 +1,4 @@
-@import url('https://fonts.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 /* --- ESQUEMA DE CORES: TERMINAL DIGITAL / HACKER --- */
 
@@ -85,7 +85,7 @@ header p {
     background-color: #004d00; /* Fundo mais escuro no hover */
     color: #ffffff;
     border-color: #ffffff;
-    transform: none; /* Remove o efeito de levantar para manter o estilo 'flat' */
+    transform: none; 
 }
 
 /* --- ESTILO DO QUIZ (TERMINAL) --- */
@@ -100,7 +100,9 @@ header p {
 
 /* Estilo para Botões de Opção */
 .options {
-    gap: 10px; 
+    display: flex; /* Para melhorar a distribuição */
+    flex-direction: column;
+    gap: 15px; 
 }
 .option-button {
     background-color: #0d0d0d;
@@ -110,6 +112,10 @@ header p {
     border-radius: 3px;
     box-shadow: none;
     text-align: left;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
 }
 .option-button:hover {
     background-color: #004d00;
@@ -131,13 +137,14 @@ header p {
     border-color: #ff0000 !important;
 }
 
-/* Estilo do Placar Fixo */
+/* Estilo do Placar Fixo (#game-status) */
 #game-status {
     padding: 10px 15px;
     border: 2px solid #009900; 
     border-radius: 3px;
     background-color: #001a00; /* Fundo bem escuro */
     color: #39ff14;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     font-size: 1.2em;
     text-shadow: 0 0 5px #00ff00;
@@ -145,7 +152,17 @@ header p {
 
 /* Botão de voltar ao menu */
 .quiz-container a.option-button {
+    text-align: center;
     background-color: #000000;
     color: #39ff14;
     border-color: #00ff00;
+}
+
+/* Estilo para a mensagem final de resultado */
+#result p {
+    color: #39ff14 !important;
+    text-shadow: 0 0 5px #00ff00;
+}
+#result button {
+    margin-top: 20px;
 }
