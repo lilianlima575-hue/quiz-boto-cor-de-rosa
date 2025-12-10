@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Aluno | Projeto Mais Ciência</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <a href="portal.html" class="logo">🔬 PORTAL MAIS CIÊNCIA</a>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <nav id="main-nav">
+        <ul class="nav-links">
+            <li><a href="portal.html">Portal Home</a></li>
+            <li><a href="quiz-final-biologia.html">Desafio Biologia</a></li>
+            <li><a href="#">Área do Aluno (Simulado)</a></li>
+            <li><a href="apresentacao.html">Sobre o Projeto</a></li>
+        </ul>
+    </nav>
+
+    <main class="game-menu">
+        <h2 class="menu-title">🎓 Central de Módulos e Desafios</h2>
+        
+        <h3 style="color: var(--color-primary); font-family: 'Dosis', sans-serif; text-align: left; margin-top: 40px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">
+            MÓDULOS ESSENCIAIS
+        </h3>
+        
+        <a href="estudo-botos.html" class="game-link">
+            1. Botos da Amazônia: Estudo Completo
+            <small style="display: block; font-weight: 400; font-size: 0.9em; margin-top: 5px;">
+                Material de leitura e conceitos fundamentais de conservação.
+            </small>
+        </a>
+        
+        <a href="quiz-final-biologia.html" class="game-link">
+            2. QUIZ DE DESAFIO (10 Questões)
+            <small style="display: block; font-weight: 400; font-size: 0.9em; margin-top: 5px;">
+                Teste seus conhecimentos em Biologia, Taxonomia e Ecologia.
+            </small>
+        </a>
+        
+        <h3 style="color: var(--color-primary); font-family: 'Dosis', sans-serif; text-align: left; margin-top: 40px; border-bottom: 2px solid #ddd; padding-bottom: 5px;">
+            OPÇÕES AVANÇADAS DO ALUNO
+        </h3>
+
+        <a href="#" onclick="alert('Funcionalidade em desenvolvimento! Iremos adicionar centenas de questões aqui.')" class="game-link">
+            ➕ Banco de Questões (Simulado Maior)
+            <small style="display: block; font-weight: 400; font-size: 0.9em; margin-top: 5px;">
+                Carregamento de centenas de perguntas de Biologia para treino.
+            </small>
+        </a>
+        
+        <a href="#" onclick="alert('Esta área requer dados reais. Simulação: Suas respostas ficarão registradas no nosso servidor.')" class="game-link">
+            📈 Portal de Respostas (Performance)
+            <small style="display: block; font-weight: 400; font-size: 0.9em; margin-top: 5px;">
+                Acesse o desempenho de seus quizes e o gabarito.
+            </small>
+        </a>
+
+        <a href="login.html" class="game-link" style="background-color: #F44336; color: white; text-align: center;">
+            SAIR DO PORTAL (LOGOUT)
+        </a>
+
+
+    </main>
+
+    <footer>
+        <p>© 2025 Projeto Mais Ciência. Plataforma Educativa.</p>
+        <p>Desenvolvido por Davi, Jhon e Heloiza.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
