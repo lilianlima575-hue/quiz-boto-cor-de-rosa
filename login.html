@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso ao Portal | Mais Ciência</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Estilos Específicos para a Tela de Login */
+        body {
+            /* Fundo azul escuro já está definido em style.css */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa a tela inteira */
+        }
+        
+        .login-box {
+            max-width: 400px;
+            width: 90%;
+            padding: 40px;
+            background-color: var(--color-card);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            color: var(--color-text-dark); /* Texto interno escuro */
+        }
+        
+        .login-box h2 {
+            font-family: 'Dosis', sans-serif;
+            font-size: 2em;
+            color: var(--color-primary);
+            margin-bottom: 25px;
+        }
+        
+        .login-box input[type="text"], 
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        
+        .login-button {
+            display: block;
+            width: 100%;
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .login-button:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Esconde Header e Footer nesta página */
+        header, footer { display: none; }
+        
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Acesso ao Portal Mais Ciência</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Nome de Usuário (Ex: DaviJhon)" required>
+            <input type="password" id="password" placeholder="Senha (Qualquer coisa)" required>
+            
+            <button type="submit" class="login-button">
+                ENTRAR NO PORTAL DE ESTUDOS
+            </button>
+            
+            <p style="margin-top: 20px; font-size: 0.9em; color: #777;">
+                Simulação: Clique em 'Entrar' para continuar.
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+            
+            // Simulação de verificação
+            const username = document.getElementById('username').value;
+            if (username.length > 2) {
+                // Redireciona para a nova página principal do portal
+                window.location.href = 'portal.html'; 
+            } else {
+                alert('Por favor, digite um nome de usuário.');
+            }
+        });
+    </script>
+
+</body>
+</html>
